@@ -16,7 +16,8 @@ angular.module('i18ng')
       var callback = options[1] || function() {}
       if (typeof opts === 'function') callback = opts, opts = {}
 
-      i18n.init.call(i18n, opts, function() {
+      i18n.init.call(i18n, opts, function(t) {
+        i18n.t = t
         if (!$rootScope.$$phase)
           $rootScope.$digest()
         callback.apply(this, arguments)
@@ -28,6 +29,6 @@ angular.module('i18ng')
   .filter('t', ['i18ng', function(i18ng) {
     'use strict'
     return function(input) {
-      return i18ng.t.apply(i18ng, arguments)
+      return i18n.t.apply(null, arguments)
     }
   }])

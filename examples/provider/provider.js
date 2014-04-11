@@ -13,8 +13,8 @@ app.config(['i18ngProvider', function(i18ngProvider) {
 
 }])
 
-app.controller('FilterController', ['$scope', function($scope) {
+app.controller('ProviderController', ['$scope', 'i18ng', function($scope, i18ng) {
 
-  $scope.score = 10000
+  $scope.myText = i18ng.t('word', { count: 4 })
 
 }])
