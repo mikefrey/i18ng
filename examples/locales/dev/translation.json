@@ -1,0 +1,15 @@
+{
+  "word": "word",
+  "word_plural": "words",
+
+  "numbers": {
+    "one": "one",
+    "two": "two",
+    "three": "three"
+  },
+
+  "html": {
+    "strong": "Some <strong>bolded</strong> text.",
+    "param": "Your score: <strong>__score__</strong>"
+  }
+}

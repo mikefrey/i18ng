@@ -1,0 +1,32 @@
+{
+  "name": "i18ng",
+  "version": "0.0.0",
+  "authors": [
+    "Mike Frey <frey.mike@gmail.com>"
+  ],
+  "description": "i18next for angular.js",
+  "dependencies": {
+    "i18next": "~1.7.2"
+  },
+  "devDependencies": {
+    "angular": "~1.2.16",
+    "angular-mocks": "~1.2.16",
+    "angular-sanitize": "~1.2.16"
+  },
+  "main": "i18ng.js",
+  "keywords": [
+    "i18next",
+    "internationalization",
+    "angular",
+    "ng"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "examples",
+    "test",
+    "tests"
+  ]
+}

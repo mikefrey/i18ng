@@ -1,0 +1,23 @@
+{
+  "node": true,
+  "curly": false,
+  "eqeqeq": false,
+  "immed": true,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "boss": true,
+  "eqnull": true,
+  "browser": true,
+  "asi": true,
+  "devel": true,
+  "predef" : [ "module", "__dirname" ],
+  "-W030": true,
+  "-W033": true,
+  "-W097": true,
+  "globals": {
+    "angular": true
+  }
+}

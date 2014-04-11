@@ -1,0 +1,35 @@
+{
+  "name": "i18ng",
+  "version": "0.0.0",
+  "description": "i18next for Angular.js",
+  "main": "i18ng.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "karma": "^0.12.6",
+    "karma-jasmine": "^0.1.5",
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.4.0"
+  },
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikefrey/i18ng.git"
+  },
+  "keywords": [
+    "i18n",
+    "angular",
+    "i18next",
+    "browser"
+  ],
+  "author": "Mike Frey <frey.mike@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikefrey/i18ng/issues"
+  },
+  "homepage": "https://github.com/mikefrey/i18ng"
+}
