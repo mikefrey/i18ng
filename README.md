@@ -19,7 +19,7 @@ $ bower install i18ng --save
 
 ## Setup
 
-```
+```javascript
 var app = angular.module('MyApp', ['i18ng', 'ngSanitize'])
 
 app.config(['i18ngProvider', function(i18ngProvider) {
@@ -40,26 +40,28 @@ The filter is simply `t`.
 #### simple translations
 
 Translate `hello_world`:
-```
+```html
 {{ 'hello_world' | t }}
 ```
 
 Translate `$scope.greeting`:
 ```
 {{ greeting | t }}
+```
 
 #### using options
 
 Given the following translation dictionary:
-```
+```json
 {
   "score": "Score: __score__",
   "lives": "1 life remaining",
   "lives_plural": "__count__ lives remaining"
 }
+```
 
 Translates `score` with a `score` option:
-```
+```html
 <!-- With a number literal -->
 {{ 'score' | t:{'score':10000} }}
 <!-- With a variable on $scope -->
@@ -67,7 +69,7 @@ Translates `score` with a `score` option:
 ```
 
 Translates `lives` with a `count` option:
-```
+```html
 <!-- prints: 3 lives remaining -->
 {{ 'lives' | t:{'count':3} }}
 <!-- prints: 1 life remaining -->
@@ -81,14 +83,14 @@ To render HTML from a translation value, you must use the `ng-bind-html` directi
 
 Given the following translation dictionary:
 
-```
+```json
 {
   "strong": "Some <strong>bolded</strong> text."
 }
 ```
 
 Translates `strong` with HTML:
-```
+```html
 <div ng-bind-html="'strong' | t"></div>
 ```
 
