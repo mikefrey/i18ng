@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    td:first-child {
+      font-size: 0.7em;
+      font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    }
+    td, th { padding-right: 15px; }
+    th { text-align: left; }
+  </style>
+</head>
+<body ng-app="MyApp">
+
+  <div ng-controller="DirectiveController">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Usage</th>
+          <th>Expected</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>&lt;span i18n="'word'"&gt;&lt;/span&gt;</td>
+          <td>wordy</td>
+          <td i18n="'word'"></td>
+        </tr>
+        <tr>
+          <td>&lt;span i18n="'word'" i18opts="{count:4}"&gt;&lt;/span&gt;</td>
+          <td>4 words</td>
+          <td i18n="'word'" i18opts="{count:4}"></td>
+        </tr>
+        <tr>
+          <td>&lt;span i18n="'numbers.two'"&gt;&lt;/span&gt;</td>
+          <td>two</td>
+          <td i18n="'numbers.two'"></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+    <p i18n="'word'"></p>
+    <p i18n="'word'" i18opts="{count:4}"></p>
+    <p><input type="text" ng-model="key"/></p>
+    <p i18n="key"></p>
+  </div>
+
+  <script src="../../bower_components/angular/angular.js"></script>
+  <script src="../../bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="../../bower_components/i18next/i18next.js"></script>
+  <script src="../../i18ng.js"></script>
+  <script src="directive.js"></script>
+</body>
+</html>
