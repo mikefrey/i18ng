@@ -6,7 +6,7 @@ angular.module('i18ng')
 
     var i18n = window.i18n
 
-    var options
+    var options = []
     this.init = function() {
       options = Array.prototype.slice.call(arguments)
     }
