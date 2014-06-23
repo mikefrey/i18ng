@@ -103,6 +103,13 @@ describe('isActive', function () {
       expect(elm.attr('title')).toBe('opt: title')
       expect(elm.attr('other')).toBe('opt: other')
     })
+
+    it('should apply opts to the correct attribute', function() {
+      compileDirective("<span i18n i18n-title=\"'opt_key'\" i18n-title-opts=\"{ opt: 'title' }\""+
+                                 " i18n-other=\"'opt_key'\"></span>")
+      expect(elm.attr('title')).toBe('opt: title')
+      expect(elm.attr('other')).toBe('opt: __opt__')
+    })
   })
 })
 
