@@ -91,6 +91,12 @@ describe('isActive', function () {
       expect(elm.attr('title')).toBe('opt: 1')
     })
 
+    it('should translate element and an attribute', function() {
+      compileDirective("<span i18n=\"'key'\" i18n-title=\"'key2'\"></span>")
+      expect(elm.text()).toBe('key translated')
+      expect(elm.attr('title')).toBe('key2 translated')
+    })
+
     it('should translate and set two attributes', function() {
       compileDirective("<span i18n i18n-title=\"'key'\" i18n-other=\"'key2'\"></span>")
       expect(elm.attr('title')).toBe('key translated')
