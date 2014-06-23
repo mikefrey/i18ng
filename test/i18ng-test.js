@@ -84,6 +84,7 @@ describe('isActive', function () {
 
   it('should translate and set as html (NO ESCAPING)', function() {
     $parentScope.scopeKey = 'html'
+    // Note this uses "i18ng" - only attrib with "g"
     compileDirective("<span i18n='scopeKey' i18ng-html></span>")
     expect(elm.html()).toBe("Symbols &amp;")
   })
