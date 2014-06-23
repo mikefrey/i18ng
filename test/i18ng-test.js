@@ -1,6 +1,20 @@
 ;(function() {
 'use strict'
 
+i18n.init({
+  lng: 'en-US',
+  customLoad: function(lng, ns, options, loadComplete) {
+    loadComplete(null, {
+      key: 'key translated',
+      opt_key: 'opt: __opt__',
+      nested: {
+        child: 'child translated'
+      },
+      html: "Symbols &amp; &#8220;Quotes&#8221;"
+    })
+  }
+})
+
 describe('isActive', function () {
   var $compile
   var $parentScope
