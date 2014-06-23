@@ -73,7 +73,10 @@ describe('isActive', function () {
     expect(elm.text()).toBe('opt: 1')
   })
 
-  it('should translate and set as html', function() {
+  it('should translate and set as html (NO ESCAPING)', function() {
+    $parentScope.scopeKey = 'html'
+    compileDirective("<span i18n='scopeKey'></span>")
+    expect(elm.text()).toBe("Symbols &amp; &#8220;Quotes&#8221;")
   })
 
   describe('#attributes', function () {
