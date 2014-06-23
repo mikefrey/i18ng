@@ -1,6 +1,6 @@
 {
   "name": "i18ng",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "i18next for Angular.js",
   "main": "i18ng.js",
   "directories": {
