@@ -27,6 +27,11 @@ describe('isActive', function () {
     $parentScope = $rootScope.$new()
   }))
 
+  afterEach(inject(function(_$compile_, $rootScope) {
+    elm = undefined
+    $parentScope = undefined
+  }))
+
   function compileDirective(tpl) {
     if (!tpl) {
       tpl = "<span i18n='key'></span>"
