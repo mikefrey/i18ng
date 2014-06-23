@@ -11,7 +11,10 @@ i18n.init({
       nested: {
         child: 'child translated'
       },
-      html: "Symbols &amp; &#8220;Quotes&#8221;"
+      // Character codes are harder to test, because depending on the platform
+      // they may not be escaped when queried via element.html()
+      //html: "Symbols &amp; &#8220;Quotes&#8221;"
+      html: "Symbols &amp;"
     })
   }
 })
@@ -81,8 +84,8 @@ describe('isActive', function () {
 
   it('should translate and set as html (NO ESCAPING)', function() {
     $parentScope.scopeKey = 'html'
-    compileDirective("<span i18n='scopeKey'></span>")
-    expect(elm.text()).toBe("Symbols &amp; &#8220;Quotes&#8221;")
+    compileDirective("<span i18n='scopeKey' i18ng-html></span>")
+    expect(elm.html()).toBe("Symbols &amp;")
   })
 
   describe('#attributes', function () {
