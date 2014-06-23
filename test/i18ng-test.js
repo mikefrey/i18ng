@@ -34,7 +34,7 @@ describe('isActive', function () {
 
   function compileDirective(tpl) {
     if (!tpl) {
-      tpl = "<span i18n='key'></span>"
+      tpl = "<span i18n=\"'key'\"></span>"
     }
     elm = $compile(tpl)($parentScope)
     $parentScope.$digest()
@@ -45,32 +45,32 @@ describe('isActive', function () {
   })
 
   it('should translate direct strings', function() {
-    compileDirective("<span i18n=\"'key'\"></span>")
-    expect(elm.text()).toBe('key')
+    compileDirective()
+    expect(elm.text()).toBe('key translated')
   })
 
   it('should translate direct strings w/ options', function() {
     compileDirective("<span i18n=\"'opt_key'\" i18n-opts=\"{ opt: '1' }\"></span>")
-    expect(elm.text()).toBe('key w/ 1')
+    expect(elm.text()).toBe('opt: 1')
   })
 
   it('should translate scoped values', function() {
-    $parentScope.key = 'key'
-    compileDirective()
-    expect(elm.text()).toBe('key')
+    $parentScope.scopeKey = 'key'
+    compileDirective("<span i18n='scopeKey'></span>")
+    expect(elm.text()).toBe('key translated')
   })
 
-  it('should translate scoped values w/ options', function() {
-    $parentScope.key = 'key'
-    compileDirective("<span i18n='key' i18n-opts=\"{ opt: '1' }\"></span>")
-    expect(elm.text()).toBe('key w/ 1')
+  it('should translate scoped value w/ options', function() {
+    $parentScope.scopeKey = 'opt_key'
+    compileDirective("<span i18n='scopeKey' i18n-opts=\"{ opt: '1' }\"></span>")
+    expect(elm.text()).toBe('opt: 1')
   })
 
-  it('should translate scoped values w/ scoped options', function() {
-    $parentScope.key = 'key'
+  it('should translate scoped value w/ scoped options', function() {
+    $parentScope.scopeKey = 'opt_key'
     $parentScope.opts = { opt: 1 }
-    compileDirective("<span i18n='key' i18n-opts='opts'></span>")
-    expect(elm.text()).toBe('key w/ 1')
+    compileDirective("<span i18n='scopeKey' i18n-opts='opts'></span>")
+    expect(elm.text()).toBe('opt: 1')
   })
 
   it('should translate and set as html', function() {
