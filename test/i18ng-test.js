@@ -55,6 +55,11 @@ describe('isActive', function () {
     expect(elm.text()).toBe('opt: 1')
   })
 
+  it('should translate direct strings MISSING options', function() {
+    compileDirective("<span i18n=\"'opt_key'\"></span>")
+    expect(elm.text()).toBe('opt: __opt__')
+  })
+
   it('should translate scoped values', function() {
     $parentScope.scopeKey = 'key'
     compileDirective("<span i18n='scopeKey'></span>")
