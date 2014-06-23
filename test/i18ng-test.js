@@ -96,6 +96,13 @@ describe('isActive', function () {
       expect(elm.attr('title')).toBe('key translated')
       expect(elm.attr('other')).toBe('key2 translated')
     })
+
+    it('should translate and set two attributes w/ opts', function() {
+      compileDirective("<span i18n i18n-title=\"'opt_key'\" i18n-title-opts=\"{ opt: 'title' }\""+
+                                 " i18n-other=\"'opt_key'\" i18n-other-opts=\"{ opt: 'other' }\"></span>")
+      expect(elm.attr('title')).toBe('opt: title')
+      expect(elm.attr('other')).toBe('opt: other')
+    })
   })
 })
 
