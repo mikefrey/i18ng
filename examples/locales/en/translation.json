@@ -10,6 +10,7 @@
 
   "html": {
     "strong": "Some <strong>bolded</strong> text.",
-    "param": "Your score: <strong>__score__</strong>"
+    "param": "Your score: <strong>__score__</strong>",
+    "characters": "Symbols &amp; &#8220;Quotes&#8221;"
   }
 }
