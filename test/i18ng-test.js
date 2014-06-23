@@ -19,7 +19,7 @@ i18n.init({
   }
 })
 
-describe('isActive', function () {
+describe('i18ng directive', function () {
   var $compile
   var $parentScope
   var elm
