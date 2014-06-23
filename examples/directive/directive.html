@@ -30,14 +30,34 @@
           <td i18n="'word'"></td>
         </tr>
         <tr>
-          <td>&lt;span i18n="'word'" i18opts="{count:4}"&gt;&lt;/span&gt;</td>
+          <td>&lt;span i18n="'word'" i18n-opts="{count:4}"&gt;&lt;/span&gt;</td>
           <td>4 words</td>
-          <td i18n="'word'" i18opts="{count:4}"></td>
+          <td i18n="'word'" i18n-opts="{count:4}"></td>
         </tr>
         <tr>
           <td>&lt;span i18n="'numbers.two'"&gt;&lt;/span&gt;</td>
           <td>two</td>
           <td i18n="'numbers.two'"></td>
+        </tr>
+        <tr>
+          <td>&lt;span i18n i18n-title="'numbers.two'"&gt;&lt;/span&gt;</td>
+          <td title="two">hover</td>
+          <td i18n i18n-title="'numbers.two'">hover</td>
+        </tr>
+        <tr>
+          <td>&lt;span i18ng="'html.strong'" i18ng-html&gt;&lt;/span&gt;</td>
+          <td>Some <strong>bolded</strong> text.</td>
+          <td i18n="'html.strong'" i18ng-html></td>
+        </tr>
+        <tr>
+          <td>&lt;span i18ng="'html.param'" i18ng-opts="{score:score}" i18ng-html&gt;&lt;/span&gt;</td>
+          <td>Your score: <strong>10000</strong></td>
+          <td i18n="'html.param'" i18n-opts="{score:score}" i18ng-html></td>
+        </tr>
+        <tr>
+          <td>&lt;span i18ng="'html.characters'" i18ng-html&gt;&lt;/span&gt;</td>
+          <td>Symbols &amp; &#8220;Quotes&#8221;</td>
+          <td i18n="'html.characters'" i18ng-html></td>
         </tr>
       </tbody>
     </table>
@@ -45,9 +65,11 @@
 
 
     <p i18n="'word'"></p>
-    <p i18n="'word'" i18opts="{count:4}"></p>
+    <p i18n="'word'" i18n-opts="{count:score}"></p>
+    <p i18n="'word'" i18n-opts="{count:4}" i18n-title="'word'" i18n-title-opts="{count:8}"></p>
     <p><input type="text" ng-model="key"/></p>
-    <p i18n="key"></p>
+    <p>Text: <span i18n="key"></span></p>
+    <p>HTML: <span i18n="key" i18ng-html></span></p>
   </div>
 
   <script src="../../bower_components/angular/angular.js"></script>
