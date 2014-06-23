@@ -86,10 +86,10 @@ angular.module('i18ng')
 
         if (attrs.i18ng) {
           var attr = 'i18ngHtml' in attrs ? '_html' : '_text'
-          var hasOpts = !!attrs.i18nOpts
+          var hasOpts = !!attrs.i18ngOpts
           translations[attr] = {
             getKey: $parse(attrs.i18ng),
-            getOpts: hasOpts ? $parse(attrs.i18nOpts) : null
+            getOpts: hasOpts ? $parse(attrs.i18ngOpts) : null
           }
 
           scope.$watch(function() {
