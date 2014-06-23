@@ -38,7 +38,7 @@ describe('i18ng directive', function () {
 
   function compileDirective(tpl) {
     if (!tpl) {
-      tpl = "<span i18n=\"'key'\"></span>"
+      tpl = "<span i18ng=\"'key'\"></span>"
     }
     elm = $compile(tpl)($parentScope)
     $parentScope.$digest()
@@ -54,74 +54,74 @@ describe('i18ng directive', function () {
   })
 
   it('should translate direct strings w/ options', function() {
-    compileDirective("<span i18n=\"'opt_key'\" i18n-opts=\"{ opt: '1' }\"></span>")
+    compileDirective("<span i18ng=\"'opt_key'\" i18ng-opts=\"{ opt: '1' }\"></span>")
     expect(elm.text()).toBe('opt: 1')
   })
 
   it('should translate direct strings MISSING options', function() {
-    compileDirective("<span i18n=\"'opt_key'\"></span>")
+    compileDirective("<span i18ng=\"'opt_key'\"></span>")
     expect(elm.text()).toBe('opt: __opt__')
   })
 
   it('should translate scoped values', function() {
     $parentScope.scopeKey = 'key'
-    compileDirective("<span i18n='scopeKey'></span>")
+    compileDirective("<span i18ng='scopeKey'></span>")
     expect(elm.text()).toBe('key translated')
   })
 
   it('should translate scoped value w/ options', function() {
     $parentScope.scopeKey = 'opt_key'
-    compileDirective("<span i18n='scopeKey' i18n-opts=\"{ opt: '1' }\"></span>")
+    compileDirective("<span i18ng='scopeKey' i18ng-opts=\"{ opt: '1' }\"></span>")
     expect(elm.text()).toBe('opt: 1')
   })
 
   it('should translate scoped value w/ scoped options', function() {
     $parentScope.scopeKey = 'opt_key'
     $parentScope.opts = { opt: 1 }
-    compileDirective("<span i18n='scopeKey' i18n-opts='opts'></span>")
+    compileDirective("<span i18ng='scopeKey' i18ng-opts='opts'></span>")
     expect(elm.text()).toBe('opt: 1')
   })
 
   it('should translate and set as html (NO ESCAPING)', function() {
     $parentScope.scopeKey = 'html'
     // Note this uses "i18ng" - only attrib with "g"
-    compileDirective("<span i18n='scopeKey' i18ng-html></span>")
+    compileDirective("<span i18ng='scopeKey' i18ng-html></span>")
     expect(elm.html()).toBe("Symbols &amp;")
   })
 
   describe('#attributes', function () {
     it('should translate and set an attribute', function() {
-      compileDirective("<span i18n i18n-title=\"'key'\"></span>")
+      compileDirective("<span i18ng i18ng-title=\"'key'\"></span>")
       expect(elm.attr('title')).toBe('key translated')
     })
 
     it('should translate and set an attribute w/opts', function() {
-      compileDirective("<span i18n i18n-title=\"'opt_key'\" i18n-title-opts=\"{ opt: 1 }\"></span>")
+      compileDirective("<span i18ng i18ng-title=\"'opt_key'\" i18ng-title-opts=\"{ opt: 1 }\"></span>")
       expect(elm.attr('title')).toBe('opt: 1')
     })
 
     it('should translate element and an attribute', function() {
-      compileDirective("<span i18n=\"'key'\" i18n-title=\"'key2'\"></span>")
+      compileDirective("<span i18ng=\"'key'\" i18ng-title=\"'key2'\"></span>")
       expect(elm.text()).toBe('key translated')
       expect(elm.attr('title')).toBe('key2 translated')
     })
 
     it('should translate and set two attributes', function() {
-      compileDirective("<span i18n i18n-title=\"'key'\" i18n-other=\"'key2'\"></span>")
+      compileDirective("<span i18ng i18ng-title=\"'key'\" i18ng-other=\"'key2'\"></span>")
       expect(elm.attr('title')).toBe('key translated')
       expect(elm.attr('other')).toBe('key2 translated')
     })
 
     it('should translate and set two attributes w/ opts', function() {
-      compileDirective("<span i18n i18n-title=\"'opt_key'\" i18n-title-opts=\"{ opt: 'title' }\""+
-                                 " i18n-other=\"'opt_key'\" i18n-other-opts=\"{ opt: 'other' }\"></span>")
+      compileDirective("<span i18ng i18ng-title=\"'opt_key'\" i18ng-title-opts=\"{ opt: 'title' }\""+
+                                 " i18ng-other=\"'opt_key'\" i18ng-other-opts=\"{ opt: 'other' }\"></span>")
       expect(elm.attr('title')).toBe('opt: title')
       expect(elm.attr('other')).toBe('opt: other')
     })
 
     it('should apply opts to the correct attribute', function() {
-      compileDirective("<span i18n i18n-title=\"'opt_key'\" i18n-title-opts=\"{ opt: 'title' }\""+
-                                 " i18n-other=\"'opt_key'\"></span>")
+      compileDirective("<span i18ng i18ng-title=\"'opt_key'\" i18ng-title-opts=\"{ opt: 'title' }\""+
+                                 " i18ng-other=\"'opt_key'\"></span>")
       expect(elm.attr('title')).toBe('opt: title')
       expect(elm.attr('other')).toBe('opt: __opt__')
     })
