@@ -6,6 +6,7 @@ i18n.init({
   customLoad: function(lng, ns, options, loadComplete) {
     loadComplete(null, {
       key: 'key translated',
+      key2: 'key2 translated',
       opt_key: 'opt: __opt__',
       nested: {
         child: 'child translated'
@@ -88,6 +89,12 @@ describe('isActive', function () {
     it('should translate and set an attribute w/opts', function() {
       compileDirective("<span i18n i18n-title=\"'opt_key'\" i18n-title-opts=\"{ opt: 1 }\"></span>")
       expect(elm.attr('title')).toBe('opt: 1')
+    })
+
+    it('should translate and set two attributes', function() {
+      compileDirective("<span i18n i18n-title=\"'key'\" i18n-other=\"'key2'\"></span>")
+      expect(elm.attr('title')).toBe('key translated')
+      expect(elm.attr('other')).toBe('key2 translated')
     })
   })
 })
