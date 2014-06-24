@@ -34,10 +34,10 @@ angular.module('i18ng')
     }
   }])
 
-  .directive('i18n', ['i18ng', '$parse', function(i18ng, $parse) {
+  .directive('i18ng', ['i18ng', '$parse', function(i18ng, $parse) {
     'use strict'
 
-    var attrRx = /^i18n(.+?)(Opts)?$/
+    var attrRx = /^i18ng(.+?)(Opts)?$/
 
     function translateAll(scope, element, translations) {
       angular.forEach(translations, function(val, attr) {
@@ -84,12 +84,12 @@ angular.module('i18ng')
           }
         })
 
-        if (attrs.i18n) {
+        if (attrs.i18ng) {
           var attr = 'i18ngHtml' in attrs ? '_html' : '_text'
-          var hasOpts = !!attrs.i18nOpts
+          var hasOpts = !!attrs.i18ngOpts
           translations[attr] = {
-            getKey: $parse(attrs.i18n),
-            getOpts: hasOpts ? $parse(attrs.i18nOpts) : null
+            getKey: $parse(attrs.i18ng),
+            getOpts: hasOpts ? $parse(attrs.i18ngOpts) : null
           }
 
           scope.$watch(function() {
