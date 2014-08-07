@@ -79,7 +79,7 @@ Translates `lives` with a `count` option:
 
 #### html values
 
-To render HTML from a translation value, you must use the `ng-bind-html` directive.
+To render HTML from a translation value, you must use the `ng-bind-html` directive. Angular will escape your html characters if you try `{{ 'translation.with.html' | t }}`.
 
 Given the following translation dictionary:
 
@@ -144,7 +144,7 @@ Translates `lives` with a `count` option:
 
 #### html values
 
-To render HTML from a translation value, you must use the `ng-bind-html` directive.
+You can choose to support html values coming from your translation keys by including the `i18ng-html` attribute.
 
 Given the following translation dictionary:
 
@@ -180,5 +180,5 @@ the key `click_here` will be translated and the result will be placed into a
 Attributes even support options:
 
 ```html
-<span i18ng-title="'lives'" i18ng-title-opts="{count:3}"></span>
+<span i18ng i18ng-title="'lives'" i18ng-title-opts="{count:3}"></span>
 ```
