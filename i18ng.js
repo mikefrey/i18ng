@@ -59,11 +59,14 @@ angular.module('i18ng')
     }
 
     return {
+      priority: 100,
       restrict: 'A',
       link: function(scope, element, attrs) {
 
+        var transcludeElement = element.find('[ng-transclude]')
+        var elementToTranslate = transcludeElement.length ? transcludeElement : element
         var translations = {}
-        var t = translate.bind(null, scope, element, translations)
+        var t = translate.bind(null, scope, elementToTranslate, translations)
         var ignore = ['opts', 'html']
 
         angular.forEach(attrs, function(val, key) {
@@ -104,10 +107,10 @@ angular.module('i18ng')
         }
 
         scope.$on('i18ngInitComplete', function() {
-          translateAll(scope, element, translations)
+          translateAll(scope, elementToTranslate, translations)
         })
 
-        translateAll(scope, element, translations)
+        translateAll(scope, elementToTranslate, translations)
       }
     }
   }])
