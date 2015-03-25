@@ -182,3 +182,15 @@ Attributes even support options:
 ```html
 <span i18ng i18ng-title="'lives'" i18ng-title-opts="{count:3}"></span>
 ```
+
+
+### Service
+
+An `i18ng` service is available that can be injectected into your own controllers, directives and services. Use the `t` method to perform the translation.
+
+```js
+angular.module('myModule')
+  .controller('myCtrlr', function($scope, i18ng) {
+    $scope.translatedText = i18ng.t('somekey')
+  }])
+```
