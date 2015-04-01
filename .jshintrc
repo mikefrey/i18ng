@@ -18,6 +18,13 @@
   "-W033": true,
   "-W097": true,
   "globals": {
-    "angular": true
+    "angular": true,
+    "afterEach": true,
+    "beforeEach": true,
+    "describe": true,
+    "expect": true,
+    "i18n": true,
+    "inject": true,
+    "it": true
   }
 }
