@@ -3,6 +3,8 @@ i18ng
 
 i18next for Angular.js
 
+[![Gitter](https://badges.gitter.im/mikefrey/i18ng.svg)](https://gitter.im/mikefrey/i18ng)
+
 ## Installation
 
 Using Bower:
