@@ -38,7 +38,7 @@ angular.module('i18ng')
     'use strict'
 
     var attrRx = /^i18ng(.+?)(Opts)?$/
-    var nestedRx = /<#([A-Za-z0-9\-\_]+)>([^<]+)<\/[A-Za-z0-9\-\_]+>/g
+    var nestedRx = /<#([A-Za-z0-9\-\_]+)>([^<]+)<\/[A-Za-z0-9\-\_]+>|<([A-Za-z0-9\-\_]+)>/g
 
     function translateAll(scope, element, translations) {
       angular.forEach(translations, function(val, attr) {
@@ -54,10 +54,12 @@ angular.module('i18ng')
       element.empty()
 
       while(match = nestedRx.exec(val)) {
-        var tagName = match[1]
+        var tagName = match[1] || match[3]
+        var content = match[2]
         var index = val.indexOf(match[0])
-        var tag = tags.filter('[i18ng-name="'+tagName+'"]:first')
-        element.append(val.substring(lastIndex, index), tag.text(match[2]))
+        var tag = tags.filter('[i18ng-tag-name="'+tagName+'"]:first')
+        if (content) tag.html(content)
+        element.append(val.substring(lastIndex, index), tag)
         lastIndex = index + match[0].length
       }
 
