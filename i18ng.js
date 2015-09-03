@@ -88,7 +88,7 @@ angular.module('i18ng')
 
         var translations = {}
         var t = translate.bind(null, scope, element, translations)
-        var ignore = ['opts', 'html', 'nestedhtml']
+        var ignore = ['opts', 'html', 'nestedhtml', 'tagname']
 
         angular.forEach(attrs, function(val, key) {
           var match = key.match(attrRx)
