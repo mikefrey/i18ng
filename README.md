@@ -163,6 +163,38 @@ Translates `strong` with HTML:
 
 Renders: Some <strong>bolded</strong> text.
 
+#### nested html `i18ng-nested-html`
+
+For more complex markup (containing application logic), you can use the `i18ng-nested-html` attribute to include tags (or even compiled html) inline with your text.
+
+Given the following translation dictionary:
+
+```json
+{
+  "text_with_link" : "Here is a <#link-one>link</link-one> and <#link-two>another</link-two>."
+}
+```
+
+Translates `text_with_link` with nested tags inserted:
+
+```html
+<p i18ng-nested-html i18ng="'text_with_link'">
+  <a href="http://example.com" class="link" i18ng-name="link-two"></a>
+  <a href="http://foo.com" class="link" i18ng-name="link-one"></a>
+</p>
+```
+
+Renders:
+
+```html
+<p>
+  Here is a <a href="http://foo.com" class="link">link</a>
+  and <a href="http://example.com" class="link">another</a>.
+</p>
+```
+
+**Note:** the order of the inserted tags matches the translation order, not the original source order. Also, any child tags NOT used in the translation will be removed.
+
 #### attributes `i18ng-<attr>`
 
 Translating attributes on an element is supported as well. To add a `title`
