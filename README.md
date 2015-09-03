@@ -171,7 +171,7 @@ Given the following translation dictionary:
 
 ```json
 {
-  "text_with_link" : "Here is a <#link-one>link</link-one> and <#link-two>another</link-two>."
+  "text_with_link" : "Here is an <icon>, a <#link-one>link</link-one> and <#link-two>another</link-two>."
 }
 ```
 
@@ -179,8 +179,9 @@ Translates `text_with_link` with nested tags inserted:
 
 ```html
 <p i18ng-nested-html i18ng="'text_with_link'">
-  <a href="http://example.com" class="link" i18ng-name="link-two"></a>
-  <a href="http://foo.com" class="link" i18ng-name="link-one"></a>
+  <a href="http://example.com" class="link" i18ng-tag-name="link-two"></a>
+  <a href="http://foo.com" class="link" i18ng-tag-name="link-one"></a>
+  <i class="fa fa-trash" i18ng-tag-name="icon"></i>
 </p>
 ```
 
@@ -188,7 +189,7 @@ Renders:
 
 ```html
 <p>
-  Here is a <a href="http://foo.com" class="link">link</a>
+  Here is a an <i class="fa fa-trash"></i>, a <a href="http://foo.com" class="link">link</a>
   and <a href="http://example.com" class="link">another</a>.
 </p>
 ```
