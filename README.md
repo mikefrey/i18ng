@@ -189,7 +189,7 @@ Renders:
 
 ```html
 <p>
-  Here is a an <i class="fa fa-trash"></i>, a <a href="http://foo.com" class="link">link</a>
+  Here is an <i class="fa fa-trash"></i>, a <a href="http://foo.com" class="link">link</a>
   and <a href="http://example.com" class="link">another</a>.
 </p>
 ```
